@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nordledger.local/schemas/chunk.json",
+  "title": "Chunk",
+  "description": "Контракт строки data/processed/chunks.jsonl (фаза 1, шаг 3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "chunk_id",
+    "doc_id",
+    "source_id",
+    "chunk_index",
+    "text",
+    "heading_path",
+    "char_count",
+    "acl",
+    "team",
+    "priority",
+    "language",
+    "content_hash"
+  ],
+  "properties": {
+    "chunk_id": {
+      "type": "string",
+      "pattern": "^.+::[0-9]{4}$",
+      "description": "{doc_id}::{chunk_index:04d}"
+    },
+    "doc_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "chunk_index": { "type": "integer", "minimum": 0 },
+    "text": { "type": "string", "minLength": 1 },
+    "heading_path": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Иерархия заголовков от H1 к текущей секции"
+    },
+    "char_count": { "type": "integer", "minimum": 0 },
+    "acl": {
+      "type": "string",
+      "enum": ["public-to-company", "team-only", "need-to-know"]
+    },
+    "team": { "type": "string" },
+    "priority": { "type": "string", "enum": ["p0", "p1"] },
+    "language": { "type": "string" },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}

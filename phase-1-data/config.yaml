@@ -1,0 +1,23 @@
+# Фаза 1 · Data pipeline
+# Шаги 1–3: scope, documents, chunking (strategy B)
+
+corpus_root: data/corpus
+catalog_path: phase-0-discovery/sources.catalog.yaml
+gold_set_path: phase-0-discovery/gold-set/dataset.jsonl
+output_dir: data/processed
+
+# Шаг 1: какие priority из каталога брать в прогон.
+# MVP default — только p0. Для экспериментов: [p0, p1]
+priorities:
+  - p0
+
+# Исключённые priority никогда не индексируем этим пайплайном
+exclude_priorities:
+  - exclude
+
+# Шаг 3: structure-aware chunking (strategy B)
+chunking:
+  strategy: structure_b
+  max_chars: 1500
+  overlap: 180
+  min_chars: 40

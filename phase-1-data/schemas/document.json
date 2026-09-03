@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nordledger.local/schemas/normalized-document.json",
+  "title": "NormalizedDocument",
+  "description": "Контракт строки data/processed/documents.jsonl (фаза 1, шаг 2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "doc_id",
+    "source_id",
+    "title",
+    "path",
+    "text",
+    "language",
+    "acl",
+    "team",
+    "priority",
+    "doc_types",
+    "content_hash",
+    "char_count"
+  ],
+  "properties": {
+    "doc_id": { "type": "string", "minLength": 1 },
+    "source_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "path": {
+      "type": "string",
+      "description": "Путь относительно корня репозитория"
+    },
+    "text": {
+      "type": "string",
+      "description": "Markdown body без YAML frontmatter"
+    },
+    "language": { "type": "string" },
+    "acl": {
+      "type": "string",
+      "enum": ["public-to-company", "team-only", "need-to-know"]
+    },
+    "team": { "type": "string" },
+    "priority": { "type": "string", "enum": ["p0", "p1"] },
+    "doc_types": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "char_count": { "type": "integer", "minimum": 0 },
+    "updated_at": { "type": "string" }
+  }
+}

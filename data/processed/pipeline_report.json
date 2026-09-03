@@ -1,0 +1,71 @@
+{
+  "step": "run_pipeline",
+  "config": {
+    "priorities": [
+      "p0"
+    ],
+    "max_chars": 1500,
+    "overlap": 180,
+    "min_chars": 40,
+    "strategy": "structure_b"
+  },
+  "documents": {
+    "docs_out": 20,
+    "skipped_outside_priority": 11,
+    "by_source_id": {
+      "data-git-airflow-runbooks": 3,
+      "payments-confluence-ops": 3,
+      "platform-confluence-runbooks": 8,
+      "platform-git-services-readme": 3,
+      "sre-notion-incident-guides": 3
+    },
+    "scoped_source_ids": [
+      "data-git-airflow-runbooks",
+      "payments-confluence-ops",
+      "platform-confluence-runbooks",
+      "platform-git-services-readme",
+      "sre-notion-incident-guides"
+    ]
+  },
+  "chunking": {
+    "strategy": "structure_b",
+    "max_chars": 1500,
+    "overlap": 180,
+    "min_chars": 40,
+    "docs_in": 20,
+    "chunks_out": 40,
+    "chunks_before_dedupe": 40,
+    "chunks_deduped": 0,
+    "chunks_dropped_empty": 6,
+    "empty_docs": [],
+    "by_source_id": {
+      "data-git-airflow-runbooks": 3,
+      "payments-confluence-ops": 4,
+      "platform-confluence-runbooks": 24,
+      "platform-git-services-readme": 6,
+      "sre-notion-incident-guides": 3
+    }
+  },
+  "quality": {
+    "ok": true,
+    "orphans": {
+      "ok": true,
+      "docs_in": 20,
+      "docs_with_chunks": 20,
+      "orphan_doc_ids": []
+    },
+    "goldset_p0": {
+      "ok": true,
+      "skipped": false,
+      "required_count": 20,
+      "missing_doc_ids": [],
+      "gold_path": "/Users/irina/Documents/Projects/research/phase-0-discovery/gold-set/dataset.jsonl"
+    },
+    "chunk_metadata": {
+      "ok": true,
+      "errors": [],
+      "checked": 40
+    }
+  },
+  "dry_run": false
+}

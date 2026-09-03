@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/gold-set-item.json",
+  "title": "GoldSetItem",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "question",
+    "query_type",
+    "expected_behavior",
+    "relevant_doc_ids",
+    "source_priority"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^q-[a-z0-9-]+$",
+      "description": "Стабильный id кейса, например q-001-payments-rollback"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Вопрос языком пользователя"
+    },
+    "query_type": {
+      "type": "string",
+      "enum": ["how-to", "troubleshooting", "where-is", "concept", "policy"]
+    },
+    "expected_behavior": {
+      "type": "string",
+      "enum": ["answer", "refuse"],
+      "description": "answer — должен ответить по докам; refuse — не должен выдумывать"
+    },
+    "relevant_doc_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "description": "id документов/страниц. Для refuse может быть пустым"
+    },
+    "primary_doc_id": {
+      "type": "string",
+      "description": "Главный документ, который должен быть высоко в выдаче"
+    },
+    "source_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Ссылки на id из sources.catalog.yaml"
+    },
+    "source_priority": {
+      "type": "string",
+      "enum": ["p0", "p1"],
+      "description": "К какому приоритету источников относится кейс"
+    },
+    "reference_answer": {
+      "type": "string",
+      "description": "Опциональный эталонный ответ (кратко)"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "language": {
+      "type": "string",
+      "enum": ["ru", "en", "mixed"],
+      "default": "ru"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "expected_behavior": { "const": "answer" } },
+        "required": ["expected_behavior"]
+      },
+      "then": {
+        "properties": {
+          "relevant_doc_ids": { "minItems": 1 }
+        },
+        "required": ["primary_doc_id"]
+      }
+    }
+  ]
+}

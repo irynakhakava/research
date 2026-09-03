@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "generated_at": "2026-07-22",
+  "documents": [
+    {
+      "id": "data-airflow-backfill",
+      "title": "Airflow: backfill",
+      "source_id": "data-git-airflow-runbooks",
+      "path": "data/corpus/data-git-airflow-runbooks/data-airflow-backfill.md"
+    },
+    {
+      "id": "data-airflow-dag-retry",
+      "title": "Airflow: безопасный retry DAG",
+      "source_id": "data-git-airflow-runbooks",
+      "path": "data/corpus/data-git-airflow-runbooks/data-airflow-dag-retry.md"
+    },
+    {
+      "id": "data-airflow-stuck-task",
+      "title": "Airflow: зависшая task",
+      "source_id": "data-git-airflow-runbooks",
+      "path": "data/corpus/data-git-airflow-runbooks/data-airflow-stuck-task.md"
+    },
+    {
+      "id": "onboard-access-request",
+      "title": "Онбординг: запрос доступов",
+      "source_id": "hr-notion-onboarding",
+      "path": "data/corpus/hr-notion-onboarding/onboard-access-request.md"
+    },
+    {
+      "id": "onboard-laptop-setup",
+      "title": "Онбординг: настройка ноутбука",
+      "source_id": "hr-notion-onboarding",
+      "path": "data/corpus/hr-notion-onboarding/onboard-laptop-setup.md"
+    },
+    {
+      "id": "pay-openapi-payments-api-v2",
+      "title": "OpenAPI payments-api v2 (summary)",
+      "source_id": "payments-git-openapi",
+      "path": "data/corpus/payments-git-openapi/pay-openapi-payments-api-v2.md"
+    },
+    {
+      "id": "pay-openapi-refunds",
+      "title": "OpenAPI refunds (summary)",
+      "source_id": "payments-git-openapi",
+      "path": "data/corpus/payments-git-openapi/pay-openapi-refunds.md"
+    },
+    {
+      "id": "pay-ops-chargeback-flow",
+      "title": "Operations: поток chargeback",
+      "source_id": "payments-confluence-ops",
+      "path": "data/corpus/payments-confluence-ops/pay-ops-chargeback-flow.md"
+    },
+    {
+      "id": "pay-ops-settlement-rerun",
+      "title": "Operations: повторный запуск settlement",
+      "source_id": "payments-confluence-ops",
+      "path": "data/corpus/payments-confluence-ops/pay-ops-settlement-rerun.md"
+    },
+    {
+      "id": "pay-playbook-psp-timeout",
+      "title": "Playbook: таймауты PSP",
+      "source_id": "payments-confluence-ops",
+      "path": "data/corpus/payments-confluence-ops/pay-playbook-psp-timeout.md"
+    },
+    {
+      "id": "plat-adr-0012-event-bus",
+      "title": "ADR-0012: Event bus на Kafka",
+      "source_id": "platform-confluence-architecture",
+      "path": "data/corpus/platform-confluence-architecture/plat-adr-0012-event-bus.md"
+    },
+    {
+      "id": "plat-arch-environments",
+      "title": "Окружения: staging vs preprod vs prod",
+      "source_id": "platform-confluence-architecture",
+      "path": "data/corpus/platform-confluence-architecture/plat-arch-environments.md"
+    },
+    {
+      "id": "plat-arch-service-mesh-overview",
+      "title": "Internal service mesh NordLedger — overview",
+      "source_id": "platform-confluence-runbooks",
+      "path": "data/corpus/platform-confluence-runbooks/plat-arch-service-mesh-overview.md"
+    },
+    {
+      "id": "plat-runbook-deploy-overview",
+      "title": "Обзор деплоя сервисов Platform",
+      "source_id": "platform-confluence-runbooks",
+      "path": "data/corpus/platform-confluence-runbooks/plat-runbook-deploy-overview.md"
+    },
+    {
+      "id": "plat-runbook-gateway-auth",
+      "title": "API Gateway: аутентификация и ошибки 401/403",
+      "source_id": "platform-confluence-runbooks",
+      "path": "data/corpus/platform-confluence-runbooks/plat-runbook-gateway-auth.md"
+    },
+    {
+      "id": "plat-runbook-k8s-debug",
+      "title": "Базовая диагностика Kubernetes в Platform",
+      "source_id": "platform-confluence-runbooks",
+      "path": "data/corpus/platform-confluence-runbooks/plat-runbook-k8s-debug.md"
+    },
+    {
+      "id": "plat-runbook-key-rotation",
+      "title": "Ротация API ключей сервисов",
+      "source_id": "platform-confluence-runbooks",
+      "path": "data/corpus/platform-confluence-runbooks/plat-runbook-key-rotation.md"
+    },
+    {
+      "id": "plat-runbook-oncall-rotation",
+      "title": "Как добавить человека в on-call ротацию Platform",
+      "source_id": "platform-confluence-runbooks",
+      "path": "data/corpus/platform-confluence-runbooks/plat-runbook-oncall-rotation.md"
+    },
+    {
+      "id": "plat-runbook-payments-crashloop",
+      "title": "Troubleshooting: KubePodCrashLooping на payments",
+      "source_id": "platform-confluence-runbooks",
+      "path": "data/corpus/platform-confluence-runbooks/plat-runbook-payments-crashloop.md"
+    },
+    {
+      "id": "plat-runbook-payments-rollback",
+      "title": "Runbook: откат релиза payments (staging / prod)",
+      "source_id": "platform-confluence-runbooks",
+      "path": "data/corpus/platform-confluence-runbooks/plat-runbook-payments-rollback.md"
+    },
+    {
+      "id": "pm-2025-11-payments-dualwrite",
+      "title": "Postmortem 2025-11: payments dual-write",
+      "source_id": "sre-drive-postmortems",
+      "path": "data/corpus/sre-drive-postmortems/pm-2025-11-payments-dualwrite.md"
+    },
+    {
+      "id": "pm-2026-03-gateway-timeout",
+      "title": "Postmortem 2026-03: gateway timeouts",
+      "source_id": "sre-drive-postmortems",
+      "path": "data/corpus/sre-drive-postmortems/pm-2026-03-gateway-timeout.md"
+    },
+    {
+      "id": "sec-policy-pii-logging",
+      "title": "Policy: PII в логах",
+      "source_id": "security-policies",
+      "path": "data/corpus/security-policies/sec-policy-pii-logging.md"
+    },
+    {
+      "id": "sec-policy-secrets-handling",
+      "title": "Policy: обращение с секретами",
+      "source_id": "security-policies",
+      "path": "data/corpus/security-policies/sec-policy-secrets-handling.md"
+    },
+    {
+      "id": "sec-standard-tls",
+      "title": "Standard: TLS",
+      "source_id": "security-policies",
+      "path": "data/corpus/security-policies/sec-standard-tls.md"
+    },
+    {
+      "id": "services-api-gateway-readme",
+      "title": "api-gateway README",
+      "source_id": "platform-git-services-readme",
+      "path": "data/corpus/platform-git-services-readme/services-api-gateway-readme.md"
+    },
+    {
+      "id": "services-billing-workers-readme",
+      "title": "billing-workers README",
+      "source_id": "platform-git-services-readme",
+      "path": "data/corpus/platform-git-services-readme/services-billing-workers-readme.md"
+    },
+    {
+      "id": "services-payments-api-readme",
+      "title": "payments-api README",
+      "source_id": "platform-git-services-readme",
+      "path": "data/corpus/platform-git-services-readme/services-payments-api-readme.md"
+    },
+    {
+      "id": "sre-guide-rollback-decision",
+      "title": "Когда откатывать релиз",
+      "source_id": "sre-notion-incident-guides",
+      "path": "data/corpus/sre-notion-incident-guides/sre-guide-rollback-decision.md"
+    },
+    {
+      "id": "sre-guide-sev1-comms",
+      "title": "Sev-1: коммуникации",
+      "source_id": "sre-notion-incident-guides",
+      "path": "data/corpus/sre-notion-incident-guides/sre-guide-sev1-comms.md"
+    },
+    {
+      "id": "sre-severity-definitions",
+      "title": "Определения severity",
+      "source_id": "sre-notion-incident-guides",
+      "path": "data/corpus/sre-notion-incident-guides/sre-severity-definitions.md"
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+# Каталог источников документации для RAG MVP.
+# Инструкция: docs/tutorials/00-discovery.md → Шаг 1
+#
+# Режим проекта: ТОЛЬКО СТАТИКА.
+# Тексты документов: data/corpus/<source_id>/<doc_id>.md
+# Поля location / ingest — метаданные демо, runtime-коннекторов нет.
+#
+# Организация: "NordLedger" (вымышленный контур).
+# priority: p0 | p1 | exclude
+
+version: 1
+mode: static_corpus_only
+corpus_root: data/corpus
+updated_at: "2026-07-22"
+owner_of_catalog: "docs-platform@nordledger.example"
+organization: NordLedger
+default_locale: ru
+
+teams:
+  - id: platform
+    name: Platform Engineering
+    slack_channel: "#platform-docs"
+  - id: payments
+    name: Payments
+    slack_channel: "#payments-help"
+  - id: data
+    name: Data Platform
+    slack_channel: "#data-docs"
+  - id: security
+    name: Security
+    slack_channel: "#security"
+  - id: sre
+    name: SRE / On-call
+    slack_channel: "#sre-oncall"
+
+sources:
+  # ---------------------------------------------------------------------------
+  # P0 — обязательно для MVP
+  # ---------------------------------------------------------------------------
+
+  - id: platform-confluence-runbooks
+    name: Platform runbooks
+    system: confluence
+    location: "https://wiki.nordledger.example/spaces/PLAT/pages/12001/Runbooks"
+    space_or_repo: PLAT
+    path_include:
+      - "Runbooks/**"
+      - "On-call/**"
+    path_exclude:
+      - "Runbooks/Archive/**"
+      - "Runbooks/_drafts/**"
+    priority: p0
+    owner:
+      team: platform
+      contact: "platform-oncall@nordledger.example"
+    acl: team-only
+    languages: [ru, en]
+    update_cadence: "несколько раз в неделю"
+    approx_docs: 84
+    approx_tokens: 420000
+    doc_types: [runbook, howto, troubleshooting]
+    ingest:
+      connector: confluence_cloud
+      auth: "service-account:sa-docs-rag@nordledger.example"
+      sync_mode: incremental
+      webhook: true
+    sample_doc_ids:
+      - plat-runbook-payments-rollback
+      - plat-runbook-deploy-overview
+      - plat-runbook-payments-crashloop
+      - plat-runbook-gateway-auth
+      - plat-runbook-key-rotation
+      - plat-runbook-oncall-rotation
+      - plat-runbook-k8s-debug
+      - plat-arch-service-mesh-overview
+    notes: "MVP-ядро. Только деревья Runbooks и On-call; Archive и drafts не индексировать. Тексты: data/corpus/<source_id>/."
+
+  - id: platform-git-services-readme
+    name: Service READMEs and docs/
+    system: git
+    location: "https://git.nordledger.example/nordledger/services"
+    space_or_repo: nordledger/services
+    path_include:
+      - "*/README.md"
+      - "*/docs/**/*.md"
+    path_exclude:
+      - "*/docs/adr/rejected/**"
+      - "**/node_modules/**"
+    priority: p0
+    owner:
+      team: platform
+      contact: "platform-docs@nordledger.example"
+    acl: public-to-company
+    languages: [en, ru]
+    update_cadence: "на каждый merge в main"
+    approx_docs: 56
+    approx_tokens: 190000
+    doc_types: [overview, howto, concept]
+    ingest:
+      connector: git_mirror
+      auth: "deploy-key:rag-readonly"
+      sync_mode: on_push
+      default_branch: main
+    service_allowlist:
+      - payments-api
+      - payments-worker
+      - billing-workers
+      - api-gateway
+      - identity-service
+      - ledger-core
+    sample_doc_ids:
+      - services-billing-workers-readme
+      - services-payments-api-readme
+      - services-api-gateway-readme
+    notes: "Индексировать README и docs/ только для service_allowlist."
+
+  - id: payments-confluence-ops
+    name: Payments operations handbook
+    system: confluence
+    location: "https://wiki.nordledger.example/spaces/PAY/pages/33010/Operations"
+    space_or_repo: PAY
+    path_include:
+      - "Operations/**"
+      - "Incidents/Playbooks/**"
+    path_exclude:
+      - "Operations/Personal/**"
+    priority: p0
+    owner:
+      team: payments
+      contact: "payments-docs@nordledger.example"
+    acl: team-only
+    languages: [ru]
+    update_cadence: "ежедневно в дни релизов"
+    approx_docs: 41
+    approx_tokens: 210000
+    doc_types: [runbook, troubleshooting, howto]
+    ingest:
+      connector: confluence_cloud
+      auth: "service-account:sa-docs-rag@nordledger.example"
+      sync_mode: incremental
+      webhook: true
+    sample_doc_ids:
+      - pay-ops-settlement-rerun
+      - pay-ops-chargeback-flow
+      - pay-playbook-psp-timeout
+    notes: "Высокий трафик how-to/troubleshooting от дежурных Payments."
+
+  - id: sre-notion-incident-guides
+    name: SRE incident guides
+    system: notion
+    location: "https://notion.nordledger.example/sre/incident-guides"
+    space_or_repo: sre-incident-guides
+    path_include:
+      - "Guides/**"
+      - "Severity/**"
+    path_exclude:
+      - "Guides/Scratch/**"
+    priority: p0
+    owner:
+      team: sre
+      contact: "sre-oncall@nordledger.example"
+    acl: public-to-company
+    languages: [ru, en]
+    update_cadence: "после каждого Sev-1/Sev-2 postmortem"
+    approx_docs: 27
+    approx_tokens: 110000
+    doc_types: [troubleshooting, howto, policy]
+    ingest:
+      connector: notion_api
+      auth: "integration:rag-docs-reader"
+      sync_mode: incremental
+      webhook: false
+    sample_doc_ids:
+      - sre-guide-sev1-comms
+      - sre-guide-rollback-decision
+      - sre-severity-definitions
+    notes: "Публично внутри компании; личные scratch-страницы исключены."
+
+  - id: data-git-airflow-runbooks
+    name: Data platform Airflow runbooks
+    system: git
+    location: "https://git.nordledger.example/nordledger/data-airflow"
+    space_or_repo: nordledger/data-airflow
+    path_include:
+      - "docs/runbooks/**/*.md"
+      - "README.md"
+    path_exclude:
+      - "docs/runbooks/experimental/**"
+    priority: p0
+    owner:
+      team: data
+      contact: "data-platform@nordledger.example"
+    acl: public-to-company
+    languages: [en]
+    update_cadence: "2–3 раза в неделю"
+    approx_docs: 33
+    approx_tokens: 140000
+    doc_types: [runbook, troubleshooting, howto]
+    ingest:
+      connector: git_mirror
+      auth: "deploy-key:rag-readonly"
+      sync_mode: on_push
+      default_branch: main
+    sample_doc_ids:
+      - data-airflow-dag-retry
+      - data-airflow-stuck-task
+      - data-airflow-backfill
+    notes: "Только docs/runbooks; DAG Python-код в индекс не берём."
+
+  # ---------------------------------------------------------------------------
+  # P1 — после MVP
+  # ---------------------------------------------------------------------------
+
+  - id: security-policies
+    name: Security policies and standards
+    system: confluence
+    location: "https://wiki.nordledger.example/spaces/SEC/overview"
+    space_or_repo: SEC
+    path_include:
+      - "Policies/**"
+      - "Standards/**"
+    path_exclude:
+      - "Policies/Internal Investigations/**"
+    priority: p1
+    owner:
+      team: security
+      contact: "security@nordledger.example"
+    acl: need-to-know
+    languages: [ru, en]
+    update_cadence: "ежеквартально + hotfix при инцидентах"
+    approx_docs: 62
+    approx_tokens: 300000
+    doc_types: [policy]
+    ingest:
+      connector: confluence_cloud
+      auth: "service-account:sa-docs-rag-restricted@nordledger.example"
+      sync_mode: daily_full
+      webhook: false
+    sample_doc_ids:
+      - sec-policy-pii-logging
+      - sec-policy-secrets-handling
+      - sec-standard-tls
+    notes: "После MVP. Обязательны negative ACL-тесты before enable."
+
+  - id: platform-confluence-architecture
+    name: Platform architecture & ADRs
+    system: confluence
+    location: "https://wiki.nordledger.example/spaces/PLAT/pages/14000/Architecture"
+    space_or_repo: PLAT
+    path_include:
+      - "Architecture/**"
+      - "ADR/**"
+    path_exclude:
+      - "ADR/superseded/**"
+    priority: p1
+    owner:
+      team: platform
+      contact: "platform-docs@nordledger.example"
+    acl: public-to-company
+    languages: [en, ru]
+    update_cadence: "еженедельно"
+    approx_docs: 48
+    approx_tokens: 260000
+    doc_types: [concept, overview]
+    ingest:
+      connector: confluence_cloud
+      auth: "service-account:sa-docs-rag@nordledger.example"
+      sync_mode: incremental
+      webhook: true
+    sample_doc_ids:
+      - plat-arch-environments
+      - plat-adr-0012-event-bus
+    notes: "Полезно для concept-запросов; в MVP частично покрыто overview в runbooks."
+
+  - id: payments-git-openapi
+    name: Payments OpenAPI descriptions
+    system: git
+    location: "https://git.nordledger.example/nordledger/payments-contracts"
+    space_or_repo: nordledger/payments-contracts
+    path_include:
+      - "openapi/**/*.yaml"
+      - "README.md"
+    path_exclude:
+      - "openapi/legacy/v1/**"
+    priority: p1
+    owner:
+      team: payments
+      contact: "payments-docs@nordledger.example"
+    acl: public-to-company
+    languages: [en]
+    update_cadence: "на каждый merge контракта"
+    approx_docs: 19
+    approx_tokens: 95000
+    doc_types: [howto, overview]
+    ingest:
+      connector: git_mirror
+      auth: "deploy-key:rag-readonly"
+      sync_mode: on_push
+      default_branch: main
+    sample_doc_ids:
+      - pay-openapi-payments-api-v2
+      - pay-openapi-refunds
+    notes: "Нужен специальный парсер YAML→текст; не в первом ингесте."
+
+  - id: hr-notion-onboarding
+    name: Engineering onboarding (HR/People)
+    system: notion
+    location: "https://notion.nordledger.example/people/eng-onboarding"
+    space_or_repo: eng-onboarding
+    path_include:
+      - "Week-1/**"
+      - "Tools/**"
+    path_exclude:
+      - "Week-1/Manager-only/**"
+    priority: p1
+    owner:
+      team: platform
+      contact: "people-ops@nordledger.example"
+    acl: public-to-company
+    languages: [ru]
+    update_cadence: "ежемесячно"
+    approx_docs: 22
+    approx_tokens: 80000
+    doc_types: [howto, overview]
+    ingest:
+      connector: notion_api
+      auth: "integration:rag-docs-reader"
+      sync_mode: daily_full
+      webhook: false
+    sample_doc_ids:
+      - onboard-access-request
+      - onboard-laptop-setup
+    notes: "Низкий приоритет для on-call качества; полезно для where-is/how-to новичков."
+
+  - id: sre-drive-postmortems
+    name: Postmortems archive (Drive)
+    system: gdrive
+    location: "https://drive.nordledger.example/folders/1SrEPostmortemsShared"
+    space_or_repo: sre-postmortems
+    path_include:
+      - "2024/**"
+      - "2025/**"
+      - "2026/**"
+    path_exclude:
+      - "**/CONFIDENTIAL/**"
+    priority: p1
+    owner:
+      team: sre
+      contact: "sre-oncall@nordledger.example"
+    acl: need-to-know
+    languages: [ru, en]
+    update_cadence: "после закрытия инцидента"
+    approx_docs: 73
+    approx_tokens: 510000
+    doc_types: [troubleshooting, concept]
+    ingest:
+      connector: gdrive_export
+      auth: "service-account:sa-docs-rag-restricted@nordledger.example"
+      sync_mode: daily_full
+      webhook: false
+    sample_doc_ids:
+      - pm-2026-03-gateway-timeout
+      - pm-2025-11-payments-dualwrite
+    notes: "Много шума и дублей с Notion guides; подключать после дедупа."
+
+  # ---------------------------------------------------------------------------
+  # Exclude — сознательно не индексируем
+  # ---------------------------------------------------------------------------
+
+  - id: team-meeting-notes
+    name: Team meeting notes
+    system: notion
+    location: "https://notion.nordledger.example/platform/meeting-notes"
+    space_or_repo: platform-meeting-notes
+    path_include:
+      - "**"
+    path_exclude: []
+    priority: exclude
+    owner:
+      team: platform
+      contact: "platform@nordledger.example"
+    acl: team-only
+    languages: [ru]
+    update_cadence: "ежедневно"
+    approx_docs: 400
+    approx_tokens: 900000
+    doc_types: [notes]
+    ingest:
+      connector: none
+      auth: null
+      sync_mode: disabled
+      webhook: false
+    sample_doc_ids: []
+    notes: "Шум для retrieval (решения без контекста, временные TODO). Исключаем."
+
+  - id: slack-export-platform
+    name: Slack export #platform
+    system: slack_export
+    location: "s3://nordledger-docs-raw/slack/platform/"
+    space_or_repo: slack-platform
+    path_include:
+      - "**/*.json"
+    path_exclude: []
+    priority: exclude
+    owner:
+      team: platform
+      contact: "platform@nordledger.example"
+    acl: team-only
+    languages: [ru, en]
+    update_cadence: "еженедельный дамп"
+    approx_docs: 12000
+    approx_tokens: 4500000
+    doc_types: [notes]
+    ingest:
+      connector: none
+      auth: null
+      sync_mode: disabled
+      webhook: false
+    sample_doc_ids: []
+    notes: "Высокий шум, PII, устаревшие советы. Не источник истины."
+
+  - id: jira-payments-tickets
+    name: Jira tickets PAY project
+    system: jira
+    location: "https://jira.nordledger.example/projects/PAY"
+    space_or_repo: PAY
+    path_include:
+      - "issues/**"
+    path_exclude: []
+    priority: exclude
+    owner:
+      team: payments
+      contact: "payments-docs@nordledger.example"
+    acl: team-only
+    languages: [ru, en]
+    update_cadence: "непрерывно"
+    approx_docs: 18000
+    approx_tokens: 6000000
+    doc_types: [notes]
+    ingest:
+      connector: none
+      auth: null
+      sync_mode: disabled
+      webhook: false
+    sample_doc_ids: []
+    notes: "Тикеты ≠ документация. Out of scope MVP и p1."
+
+  - id: personal-notion-workspaces
+    name: Personal Notion workspaces
+    system: notion
+    location: "https://notion.nordledger.example/users/*/private"
+    space_or_repo: personal
+    path_include:
+      - "**"
+    path_exclude: []
+    priority: exclude
+    owner:
+      team: platform
+      contact: "docs-platform@nordledger.example"
+    acl: need-to-know
+    languages: [ru, en]
+    update_cadence: "n/a"
+    approx_docs: 0
+    approx_tokens: 0
+    doc_types: [notes]
+    ingest:
+      connector: none
+      auth: null
+      sync_mode: disabled
+      webhook: false
+    sample_doc_ids: []
+    notes: "Приватные заметки сотрудников. Юридически и этически нельзя индексировать."
+
+# Явный список того, что НЕ входит в MVP
+out_of_scope_mvp:
+  - Личные заметки и черновики (personal Notion, _drafts)
+  - Полные дампы Jira и Slack
+  - Meeting notes без редакции
+  - Security policies (p1) до готовности ACL-тестов
+  - OpenAPI YAML без текстового парсера
+  - Postmortems на Drive до дедупликации с SRE Notion guides
+  - Вложения > 15 MB без текстового слоя (PDF-сканы, видео)
+
+# Сводка для планирования ингеста (статический расчёт по полям выше)
+summary:
+  p0_source_count: 5
+  p1_source_count: 5
+  exclude_source_count: 4
+  p0_approx_docs: 241
+  p0_approx_tokens: 1070000
+  mvp_systems: [confluence, git, notion]

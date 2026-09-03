@@ -1,0 +1,24 @@
+{
+  "priorities": [
+    "p0"
+  ],
+  "scoped_source_ids": [
+    "data-git-airflow-runbooks",
+    "payments-confluence-ops",
+    "platform-confluence-runbooks",
+    "platform-git-services-readme",
+    "sre-notion-incident-guides"
+  ],
+  "manifest_docs_total": 31,
+  "docs_out": 20,
+  "skipped_outside_priority": 11,
+  "errors": [],
+  "by_source_id": {
+    "data-git-airflow-runbooks": 3,
+    "payments-confluence-ops": 3,
+    "platform-confluence-runbooks": 8,
+    "platform-git-services-readme": 3,
+    "sre-notion-incident-guides": 3
+  },
+  "dry_run": false
+}
