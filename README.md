@@ -25,7 +25,17 @@
 | 2. Index & retrieval | [docs/tutorials/02-index-retrieval.md](docs/tutorials/02-index-retrieval.md) | пункты 1–3, 5 (4 HTTP optional) |
 | 3. RAG generation | [docs/tutorials/03-rag-generation.md](docs/tutorials/03-rag-generation.md) | `/ask` + цитаты |
 | 4. Experiments | [docs/tutorials/04-experiments.md](docs/tutorials/04-experiments.md) | сетка на gold-set |
-| 5. Service & ops | — | ожидается |
+| 5. Service & ops | [docs/tutorials/05-service-ops.md](docs/tutorials/05-service-ops.md) | `/search` + `/ask` + CI |
+
+## Сервис (фаза 5)
+
+```bash
+source .venv/bin/activate
+python phase-5-service/run_server.py
+# POST http://127.0.0.1:8080/search и /ask
+```
+
+Пересборка индекса: `python phase-5-service/run_rebuild.py`
 
 ## Быстрый старт (фаза 0)
 
@@ -58,4 +68,5 @@ phase-1-data/            # код пайплайна
 phase-2-retrieval/       # embeddings, индекс, search, eval
 phase-3-generation/      # /ask + цитаты
 phase-4-experiments/     # сравнения на gold-set
+phase-5-service/         # HTTP /search + /ask, rebuild, CI
 ```

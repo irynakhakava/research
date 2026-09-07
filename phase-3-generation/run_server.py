@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Минимальный HTTP POST /ask (stdlib). Полный сервис — фаза 5.
+"""Минимальный HTTP POST /ask (stdlib). Предпочтительно: phase-5-service/run_server.py.
 
   python phase-3-generation/run_server.py
   curl -s localhost:8080/ask -H 'Content-Type: application/json' \\

@@ -1,0 +1,2 @@
+# Сервис переиспользует эмбеддер фазы 2 (локальный e5).
+-r ../phase-2-retrieval/requirements.txt

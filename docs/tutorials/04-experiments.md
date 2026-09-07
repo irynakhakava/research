@@ -83,4 +83,4 @@ python phase-4-experiments/run_experiments.py --only retrieval
 
 ## Что дальше
 
-Фаза 5 — сервис: один HTTP с `/search` и `/ask`, CI, runbook пересборки.
+Фаза 5 — сервис: [05-service-ops.md](05-service-ops.md).

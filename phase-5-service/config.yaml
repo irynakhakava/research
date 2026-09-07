@@ -1,0 +1,32 @@
+# Фаза 5 · HTTP service
+
+index_dir: data/processed/index
+documents_path: data/processed/documents.jsonl
+catalog_path: phase-0-discovery/sources.catalog.yaml
+gold_set_path: phase-0-discovery/gold-set/dataset.jsonl
+
+embeddings:
+  backend: sentence_transformers
+  model_name: intfloat/multilingual-e5-small
+  batch_size: 16
+  normalize: true
+  passage_prefix: "passage: "
+  query_prefix: "query: "
+
+retrieve:
+  mode: hybrid
+  top_k: 5
+  candidate_k: 20
+  rrf_k: 60
+
+generation:
+  backend: extractive
+  model_name: extractive
+  max_context_chunks: 4
+  min_dense_score: 0.28
+  nearest_links: 3
+  quote_chars: 280
+
+server:
+  host: 127.0.0.1
+  port: 8080
