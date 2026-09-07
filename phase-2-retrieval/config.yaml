@@ -1,0 +1,34 @@
+# Фаза 2 · Index & retrieval
+
+chunks_path: data/processed/chunks.jsonl
+output_dir: data/processed
+index_dir: data/processed/index
+gold_set_path: phase-0-discovery/gold-set/dataset.jsonl
+
+embeddings:
+  backend: sentence_transformers
+  model_name: intfloat/multilingual-e5-small
+  batch_size: 16
+  normalize: true
+  passage_prefix: "passage: "
+  query_prefix: "query: "
+
+index:
+  bm25_k1: 1.5
+  bm25_b: 0.75
+
+retrieve:
+  mode: hybrid
+  top_k: 5
+  candidate_k: 20
+  rrf_k: 60
+
+eval:
+  mode: hybrid
+  top_k: 10
+  candidate_k: 40
+  k_values: 1,5,10
+  priorities: p0
+  threshold_recall_at_10: 0.70
+  threshold_mrr: 0.50
+  output_path: data/processed/eval_report.json

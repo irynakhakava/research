@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nordledger.local/schemas/ask-response.json",
+  "title": "AskResponse",
+  "description": "Контракт JSON /ask (фаза 3)",
+  "type": "object",
+  "required": ["question", "answer", "refuse", "citations"],
+  "properties": {
+    "question": { "type": "string" },
+    "answer": { "type": "string" },
+    "refuse": { "type": "boolean" },
+    "refuse_reason": { "type": ["string", "null"] },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["index", "chunk_id", "doc_id", "path", "url"],
+        "properties": {
+          "index": { "type": "integer" },
+          "chunk_id": { "type": "string" },
+          "doc_id": { "type": "string" },
+          "source_id": { "type": "string" },
+          "path": { "type": "string" },
+          "url": { "type": "string" },
+          "heading_path": { "type": "array", "items": { "type": "string" } },
+          "quote": { "type": "string" }
+        }
+      }
+    }
+  }
+}

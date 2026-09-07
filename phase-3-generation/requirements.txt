@@ -1,0 +1,4 @@
+# Фаза 3 переиспользует эмбеддер/индекс фазы 2.
+# Extractive /ask не требует новых пакетов.
+# Опциональный backend=openai использует stdlib urllib (ключ в OPENAI_API_KEY).
+-r ../phase-2-retrieval/requirements.txt

@@ -22,8 +22,8 @@
 |------|----------|--------|
 | 0. Discovery | [docs/tutorials/00-discovery.md](docs/tutorials/00-discovery.md) | выполнена |
 | 1. Data pipeline | [docs/tutorials/01-data-pipeline.md](docs/tutorials/01-data-pipeline.md) | выполнена |
-| 2. Index & retrieval | — | ожидается |
-| 3. RAG generation | — | ожидается |
+| 2. Index & retrieval | [docs/tutorials/02-index-retrieval.md](docs/tutorials/02-index-retrieval.md) | пункты 1–3, 5 (4 HTTP optional) |
+| 3. RAG generation | [docs/tutorials/03-rag-generation.md](docs/tutorials/03-rag-generation.md) | `/ask` + цитаты |
 | 4. Experiments | — | ожидается |
 | 5. Service & ops | — | ожидается |
 
@@ -55,4 +55,6 @@ data/processed/          # выход пайплайна фазы 1
   documents.jsonl        # нормализованные документы (шаги 1–2)
   chunks.jsonl           # чанки для индекса (шаг 3)
 phase-1-data/            # код пайплайна
+phase-2-retrieval/       # embeddings, индекс, search, eval
+phase-3-generation/      # /ask + цитаты
 ```

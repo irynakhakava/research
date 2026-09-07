@@ -1,0 +1,848 @@
+{
+  "mode": "hybrid",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "priorities": [
+    "p0"
+  ],
+  "k_values": [
+    1,
+    5,
+    10
+  ],
+  "n_cases": 22,
+  "metrics": {
+    "recall_at_1": 0.8636363636363636,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "mrr": 0.9242424242424243,
+    "mrr_at_10": 0.9242424242424243
+  },
+  "thresholds": {
+    "recall_at_10": 0.7,
+    "mrr": 0.5
+  },
+  "passed": {
+    "recall_at_10": true,
+    "mrr": true
+  },
+  "cases": [
+    {
+      "id": "q-001-payments-rollback",
+      "question": "Как откатить релиз сервиса payments в staging?",
+      "relevant_doc_ids": [
+        "plat-runbook-payments-rollback",
+        "plat-runbook-deploy-overview"
+      ],
+      "primary_doc_id": "plat-runbook-payments-rollback",
+      "retrieved_doc_ids": [
+        "plat-runbook-payments-rollback",
+        "plat-runbook-deploy-overview",
+        "plat-runbook-gateway-auth",
+        "plat-runbook-payments-crashloop",
+        "pay-ops-settlement-rerun",
+        "services-billing-workers-readme"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-payments-rollback::0002",
+        "plat-runbook-payments-rollback::0000",
+        "plat-runbook-deploy-overview::0001",
+        "plat-runbook-deploy-overview::0002",
+        "plat-runbook-deploy-overview::0000",
+        "plat-runbook-gateway-auth::0001",
+        "plat-runbook-payments-crashloop::0002",
+        "pay-ops-settlement-rerun::0001",
+        "services-billing-workers-readme::0001",
+        "plat-runbook-payments-crashloop::0001"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-002-crashloop-payments",
+      "question": "KubePodCrashLooping на payments — с чего начать диагностику?",
+      "relevant_doc_ids": [
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-k8s-debug"
+      ],
+      "primary_doc_id": "plat-runbook-payments-crashloop",
+      "retrieved_doc_ids": [
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-payments-rollback",
+        "plat-arch-service-mesh-overview",
+        "services-billing-workers-readme",
+        "pay-ops-settlement-rerun",
+        "plat-runbook-gateway-auth"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-payments-crashloop::0000",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-payments-rollback::0004",
+        "plat-arch-service-mesh-overview::0000",
+        "plat-runbook-payments-rollback::0002",
+        "plat-runbook-payments-crashloop::0002",
+        "plat-runbook-payments-rollback::0000",
+        "services-billing-workers-readme::0001",
+        "pay-ops-settlement-rerun::0001",
+        "plat-runbook-gateway-auth::0001"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-003-where-billing-repo",
+      "question": "Где лежит репозиторий billing-workers?",
+      "relevant_doc_ids": [
+        "services-billing-workers-readme"
+      ],
+      "primary_doc_id": "services-billing-workers-readme",
+      "retrieved_doc_ids": [
+        "services-billing-workers-readme",
+        "plat-runbook-deploy-overview",
+        "plat-runbook-payments-rollback",
+        "pay-ops-chargeback-flow",
+        "plat-runbook-k8s-debug",
+        "services-payments-api-readme",
+        "plat-runbook-payments-crashloop"
+      ],
+      "retrieved_chunk_ids": [
+        "services-billing-workers-readme::0001",
+        "services-billing-workers-readme::0000",
+        "plat-runbook-deploy-overview::0000",
+        "services-billing-workers-readme::0002",
+        "plat-runbook-payments-rollback::0000",
+        "services-billing-workers-readme::0003",
+        "pay-ops-chargeback-flow::0000",
+        "plat-runbook-k8s-debug::0002",
+        "services-payments-api-readme::0000",
+        "plat-runbook-payments-crashloop::0001"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-004-what-is-mesh",
+      "question": "Что такое наш internal service mesh простыми словами?",
+      "relevant_doc_ids": [
+        "plat-arch-service-mesh-overview"
+      ],
+      "primary_doc_id": "plat-arch-service-mesh-overview",
+      "retrieved_doc_ids": [
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-k8s-debug",
+        "plat-runbook-gateway-auth",
+        "plat-runbook-deploy-overview",
+        "pay-ops-settlement-rerun",
+        "services-billing-workers-readme",
+        "plat-runbook-payments-rollback"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-arch-service-mesh-overview::0000",
+        "plat-arch-service-mesh-overview::0002",
+        "plat-runbook-k8s-debug::0002",
+        "plat-runbook-gateway-auth::0001",
+        "plat-runbook-deploy-overview::0001",
+        "pay-ops-settlement-rerun::0001",
+        "services-billing-workers-readme::0001",
+        "plat-runbook-payments-rollback::0004",
+        "services-billing-workers-readme::0002",
+        "services-billing-workers-readme::0003"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-006-add-oncall",
+      "question": "Как добавить человека в on-call ротацию platform?",
+      "relevant_doc_ids": [
+        "plat-runbook-oncall-rotation"
+      ],
+      "primary_doc_id": "plat-runbook-oncall-rotation",
+      "retrieved_doc_ids": [
+        "plat-runbook-oncall-rotation",
+        "plat-runbook-gateway-auth",
+        "services-billing-workers-readme",
+        "plat-runbook-payments-rollback",
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-k8s-debug",
+        "plat-runbook-key-rotation",
+        "plat-arch-service-mesh-overview"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-oncall-rotation::0000",
+        "plat-runbook-gateway-auth::0001",
+        "services-billing-workers-readme::0001",
+        "plat-runbook-payments-rollback::0000",
+        "plat-runbook-payments-crashloop::0002",
+        "plat-runbook-k8s-debug::0000",
+        "plat-runbook-key-rotation::0000",
+        "plat-runbook-gateway-auth::0000",
+        "plat-arch-service-mesh-overview::0000",
+        "plat-runbook-payments-crashloop::0001"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-007-gateway-403",
+      "question": "После ротации API ключей получаю 403 от gateway — куда смотреть?",
+      "relevant_doc_ids": [
+        "plat-runbook-gateway-auth",
+        "plat-runbook-key-rotation"
+      ],
+      "primary_doc_id": "plat-runbook-gateway-auth",
+      "retrieved_doc_ids": [
+        "plat-runbook-gateway-auth",
+        "plat-runbook-payments-crashloop",
+        "services-api-gateway-readme",
+        "plat-runbook-key-rotation",
+        "plat-runbook-oncall-rotation",
+        "services-payments-api-readme",
+        "services-billing-workers-readme"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-gateway-auth::0001",
+        "plat-runbook-payments-crashloop::0001",
+        "services-api-gateway-readme::0000",
+        "plat-runbook-key-rotation::0001",
+        "plat-runbook-gateway-auth::0002",
+        "plat-runbook-oncall-rotation::0001",
+        "services-payments-api-readme::0000",
+        "plat-runbook-key-rotation::0000",
+        "services-billing-workers-readme::0003",
+        "plat-runbook-oncall-rotation::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-009-rotate-api-keys",
+      "question": "Как правильно ротировать API ключи сервисов с overlap?",
+      "relevant_doc_ids": [
+        "plat-runbook-key-rotation"
+      ],
+      "primary_doc_id": "plat-runbook-key-rotation",
+      "retrieved_doc_ids": [
+        "plat-runbook-key-rotation",
+        "plat-runbook-gateway-auth",
+        "services-api-gateway-readme",
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-k8s-debug",
+        "plat-arch-service-mesh-overview",
+        "services-payments-api-readme",
+        "plat-runbook-oncall-rotation",
+        "pay-ops-settlement-rerun",
+        "sre-guide-rollback-decision"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-key-rotation::0000",
+        "plat-runbook-gateway-auth::0000",
+        "services-api-gateway-readme::0000",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-k8s-debug::0002",
+        "plat-arch-service-mesh-overview::0000",
+        "services-payments-api-readme::0000",
+        "plat-runbook-oncall-rotation::0001",
+        "pay-ops-settlement-rerun::0001",
+        "sre-guide-rollback-decision::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-010-k8s-crashloop-commands",
+      "question": "Какие kubectl команды использовать для базовой диагностики CrashLoopBackOff?",
+      "relevant_doc_ids": [
+        "plat-runbook-k8s-debug",
+        "plat-runbook-payments-crashloop"
+      ],
+      "primary_doc_id": "plat-runbook-k8s-debug",
+      "retrieved_doc_ids": [
+        "plat-runbook-k8s-debug",
+        "plat-runbook-payments-rollback",
+        "plat-runbook-payments-crashloop",
+        "data-airflow-backfill",
+        "services-billing-workers-readme",
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-deploy-overview",
+        "data-airflow-dag-retry"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-k8s-debug::0001",
+        "plat-runbook-payments-rollback::0002",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-k8s-debug::0002",
+        "plat-runbook-payments-rollback::0003",
+        "data-airflow-backfill::0000",
+        "services-billing-workers-readme::0001",
+        "plat-arch-service-mesh-overview::0002",
+        "plat-runbook-deploy-overview::0001",
+        "data-airflow-dag-retry::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-011-deploy-pipelines",
+      "question": "Каким pipeline деплоится payments-api и есть ли у него canary?",
+      "relevant_doc_ids": [
+        "plat-runbook-deploy-overview"
+      ],
+      "primary_doc_id": "plat-runbook-deploy-overview",
+      "retrieved_doc_ids": [
+        "plat-runbook-deploy-overview",
+        "plat-runbook-payments-rollback",
+        "services-payments-api-readme",
+        "services-billing-workers-readme",
+        "plat-runbook-key-rotation",
+        "plat-runbook-payments-crashloop",
+        "plat-arch-service-mesh-overview"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-deploy-overview::0000",
+        "plat-runbook-payments-rollback::0002",
+        "services-payments-api-readme::0000",
+        "services-billing-workers-readme::0001",
+        "plat-runbook-payments-rollback::0001",
+        "plat-runbook-key-rotation::0001",
+        "plat-runbook-payments-rollback::0000",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-payments-crashloop::0000",
+        "plat-arch-service-mesh-overview::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-012-where-payments-api",
+      "question": "Где в git лежит payments-api?",
+      "relevant_doc_ids": [
+        "services-payments-api-readme"
+      ],
+      "primary_doc_id": "services-payments-api-readme",
+      "retrieved_doc_ids": [
+        "services-payments-api-readme",
+        "services-billing-workers-readme",
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-payments-rollback",
+        "plat-runbook-deploy-overview",
+        "plat-runbook-gateway-auth",
+        "pay-ops-chargeback-flow"
+      ],
+      "retrieved_chunk_ids": [
+        "services-payments-api-readme::0000",
+        "services-billing-workers-readme::0001",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-payments-rollback::0000",
+        "plat-runbook-payments-rollback::0002",
+        "plat-runbook-payments-crashloop::0000",
+        "plat-runbook-deploy-overview::0000",
+        "services-billing-workers-readme::0003",
+        "plat-runbook-gateway-auth::0001",
+        "pay-ops-chargeback-flow::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-013-where-api-gateway",
+      "question": "В каком репозитории api-gateway и за что он отвечает?",
+      "relevant_doc_ids": [
+        "services-api-gateway-readme"
+      ],
+      "primary_doc_id": "services-api-gateway-readme",
+      "retrieved_doc_ids": [
+        "plat-runbook-gateway-auth",
+        "services-api-gateway-readme",
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-key-rotation",
+        "plat-runbook-k8s-debug",
+        "services-payments-api-readme",
+        "plat-runbook-deploy-overview",
+        "plat-runbook-payments-crashloop",
+        "services-billing-workers-readme"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-gateway-auth::0000",
+        "services-api-gateway-readme::0000",
+        "plat-arch-service-mesh-overview::0002",
+        "plat-runbook-gateway-auth::0001",
+        "plat-runbook-key-rotation::0001",
+        "plat-runbook-k8s-debug::0002",
+        "services-payments-api-readme::0000",
+        "plat-runbook-deploy-overview::0000",
+        "plat-runbook-payments-crashloop::0001",
+        "services-billing-workers-readme::0001"
+      ],
+      "first_relevant_rank": 2,
+      "hit_at": {
+        "1": false,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5
+    },
+    {
+      "id": "q-014-settlement-rerun",
+      "question": "Как перезапустить упавший settlement batch?",
+      "relevant_doc_ids": [
+        "pay-ops-settlement-rerun"
+      ],
+      "primary_doc_id": "pay-ops-settlement-rerun",
+      "retrieved_doc_ids": [
+        "pay-ops-settlement-rerun",
+        "plat-runbook-payments-rollback",
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-gateway-auth",
+        "plat-runbook-k8s-debug",
+        "plat-runbook-key-rotation",
+        "plat-runbook-payments-crashloop",
+        "data-airflow-stuck-task"
+      ],
+      "retrieved_chunk_ids": [
+        "pay-ops-settlement-rerun::0000",
+        "pay-ops-settlement-rerun::0001",
+        "plat-runbook-payments-rollback::0001",
+        "plat-arch-service-mesh-overview::0000",
+        "plat-runbook-gateway-auth::0000",
+        "plat-runbook-k8s-debug::0002",
+        "plat-runbook-key-rotation::0001",
+        "plat-runbook-payments-crashloop::0002",
+        "plat-runbook-gateway-auth::0001",
+        "data-airflow-stuck-task::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-015-chargeback",
+      "question": "Как у нас обрабатывается chargeback от PSP?",
+      "relevant_doc_ids": [
+        "pay-ops-chargeback-flow"
+      ],
+      "primary_doc_id": "pay-ops-chargeback-flow",
+      "retrieved_doc_ids": [
+        "pay-ops-chargeback-flow",
+        "pay-playbook-psp-timeout",
+        "pay-ops-settlement-rerun",
+        "sre-guide-rollback-decision",
+        "plat-runbook-payments-rollback",
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-gateway-auth",
+        "plat-runbook-key-rotation",
+        "plat-runbook-oncall-rotation"
+      ],
+      "retrieved_chunk_ids": [
+        "pay-ops-chargeback-flow::0000",
+        "pay-playbook-psp-timeout::0000",
+        "pay-ops-settlement-rerun::0001",
+        "sre-guide-rollback-decision::0000",
+        "plat-runbook-payments-rollback::0002",
+        "plat-arch-service-mesh-overview::0000",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-gateway-auth::0000",
+        "plat-runbook-key-rotation::0001",
+        "plat-runbook-oncall-rotation::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-016-psp-timeout",
+      "question": "Растут psp_request_timeouts — что делать по playbook?",
+      "relevant_doc_ids": [
+        "pay-playbook-psp-timeout"
+      ],
+      "primary_doc_id": "pay-playbook-psp-timeout",
+      "retrieved_doc_ids": [
+        "pay-playbook-psp-timeout",
+        "pay-ops-settlement-rerun",
+        "plat-runbook-k8s-debug",
+        "pay-ops-chargeback-flow",
+        "plat-runbook-gateway-auth",
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-deploy-overview",
+        "plat-runbook-payments-rollback",
+        "data-airflow-backfill"
+      ],
+      "retrieved_chunk_ids": [
+        "pay-playbook-psp-timeout::0000",
+        "pay-ops-settlement-rerun::0001",
+        "plat-runbook-k8s-debug::0002",
+        "pay-ops-chargeback-flow::0000",
+        "plat-runbook-gateway-auth::0001",
+        "plat-arch-service-mesh-overview::0002",
+        "plat-runbook-deploy-overview::0002",
+        "plat-runbook-payments-rollback::0001",
+        "data-airflow-backfill::0000",
+        "plat-arch-service-mesh-overview::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-017-sev1-comms",
+      "question": "Что писать в Slack при Sev-1 и как часто обновлять статус?",
+      "relevant_doc_ids": [
+        "sre-guide-sev1-comms"
+      ],
+      "primary_doc_id": "sre-guide-sev1-comms",
+      "retrieved_doc_ids": [
+        "sre-guide-sev1-comms",
+        "plat-runbook-gateway-auth",
+        "plat-runbook-oncall-rotation",
+        "plat-runbook-key-rotation",
+        "plat-runbook-k8s-debug",
+        "sre-guide-rollback-decision",
+        "sre-severity-definitions",
+        "pay-ops-settlement-rerun"
+      ],
+      "retrieved_chunk_ids": [
+        "sre-guide-sev1-comms::0000",
+        "plat-runbook-gateway-auth::0001",
+        "plat-runbook-oncall-rotation::0000",
+        "plat-runbook-key-rotation::0001",
+        "plat-runbook-k8s-debug::0002",
+        "sre-guide-rollback-decision::0000",
+        "sre-severity-definitions::0000",
+        "plat-runbook-key-rotation::0000",
+        "plat-runbook-gateway-auth::0000",
+        "pay-ops-settlement-rerun::0001"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-018-when-rollback",
+      "question": "Когда по гайду SRE стоит откатывать релиз, а когда нет?",
+      "relevant_doc_ids": [
+        "sre-guide-rollback-decision",
+        "plat-runbook-payments-rollback"
+      ],
+      "primary_doc_id": "sre-guide-rollback-decision",
+      "retrieved_doc_ids": [
+        "pay-ops-settlement-rerun",
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-payments-rollback",
+        "plat-runbook-deploy-overview",
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-gateway-auth",
+        "data-airflow-backfill"
+      ],
+      "retrieved_chunk_ids": [
+        "pay-ops-settlement-rerun::0000",
+        "plat-runbook-payments-crashloop::0002",
+        "plat-runbook-payments-rollback::0003",
+        "plat-runbook-payments-rollback::0001",
+        "plat-runbook-deploy-overview::0000",
+        "plat-arch-service-mesh-overview::0000",
+        "plat-runbook-gateway-auth::0001",
+        "data-airflow-backfill::0000",
+        "pay-ops-settlement-rerun::0001",
+        "plat-runbook-deploy-overview::0002"
+      ],
+      "first_relevant_rank": 3,
+      "hit_at": {
+        "1": false,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.3333333333333333
+    },
+    {
+      "id": "q-019-severity-levels",
+      "question": "Чем Sev-1 отличается от Sev-2 у нас?",
+      "relevant_doc_ids": [
+        "sre-severity-definitions"
+      ],
+      "primary_doc_id": "sre-severity-definitions",
+      "retrieved_doc_ids": [
+        "sre-severity-definitions",
+        "sre-guide-sev1-comms",
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-key-rotation",
+        "pay-ops-chargeback-flow",
+        "plat-runbook-oncall-rotation",
+        "plat-runbook-payments-rollback",
+        "sre-guide-rollback-decision"
+      ],
+      "retrieved_chunk_ids": [
+        "sre-severity-definitions::0000",
+        "sre-guide-sev1-comms::0000",
+        "plat-arch-service-mesh-overview::0000",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-key-rotation::0001",
+        "pay-ops-chargeback-flow::0000",
+        "plat-runbook-oncall-rotation::0000",
+        "plat-runbook-payments-rollback::0002",
+        "sre-guide-rollback-decision::0000",
+        "plat-runbook-payments-rollback::0004"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-020-airflow-retry",
+      "question": "Как безопасно сделать retry/clear DAG в Airflow?",
+      "relevant_doc_ids": [
+        "data-airflow-dag-retry"
+      ],
+      "primary_doc_id": "data-airflow-dag-retry",
+      "retrieved_doc_ids": [
+        "data-airflow-dag-retry",
+        "data-airflow-backfill",
+        "plat-runbook-gateway-auth",
+        "plat-runbook-key-rotation",
+        "pay-ops-chargeback-flow",
+        "pay-ops-settlement-rerun",
+        "plat-runbook-payments-rollback",
+        "plat-arch-service-mesh-overview"
+      ],
+      "retrieved_chunk_ids": [
+        "data-airflow-dag-retry::0000",
+        "data-airflow-backfill::0000",
+        "plat-runbook-gateway-auth::0000",
+        "plat-runbook-gateway-auth::0001",
+        "plat-runbook-key-rotation::0000",
+        "pay-ops-chargeback-flow::0000",
+        "pay-ops-settlement-rerun::0001",
+        "plat-runbook-key-rotation::0001",
+        "plat-runbook-payments-rollback::0003",
+        "plat-arch-service-mesh-overview::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-021-airflow-stuck",
+      "question": "Task в Airflow зависла без heartbeats — что проверить?",
+      "relevant_doc_ids": [
+        "data-airflow-stuck-task"
+      ],
+      "primary_doc_id": "data-airflow-stuck-task",
+      "retrieved_doc_ids": [
+        "data-airflow-dag-retry",
+        "data-airflow-stuck-task",
+        "plat-runbook-k8s-debug",
+        "data-airflow-backfill",
+        "plat-runbook-gateway-auth",
+        "plat-arch-service-mesh-overview",
+        "pay-ops-settlement-rerun",
+        "pay-ops-chargeback-flow",
+        "sre-guide-sev1-comms",
+        "plat-runbook-deploy-overview"
+      ],
+      "retrieved_chunk_ids": [
+        "data-airflow-dag-retry::0000",
+        "data-airflow-stuck-task::0000",
+        "plat-runbook-k8s-debug::0002",
+        "data-airflow-backfill::0000",
+        "plat-runbook-gateway-auth::0001",
+        "plat-arch-service-mesh-overview::0002",
+        "pay-ops-settlement-rerun::0001",
+        "pay-ops-chargeback-flow::0000",
+        "sre-guide-sev1-comms::0000",
+        "plat-runbook-deploy-overview::0002"
+      ],
+      "first_relevant_rank": 2,
+      "hit_at": {
+        "1": false,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5
+    },
+    {
+      "id": "q-022-airflow-backfill",
+      "question": "Как запустить backfill DAG за неделю?",
+      "relevant_doc_ids": [
+        "data-airflow-backfill"
+      ],
+      "primary_doc_id": "data-airflow-backfill",
+      "retrieved_doc_ids": [
+        "data-airflow-backfill",
+        "data-airflow-dag-retry",
+        "plat-runbook-gateway-auth",
+        "plat-arch-service-mesh-overview",
+        "services-billing-workers-readme",
+        "plat-runbook-k8s-debug",
+        "plat-runbook-payments-rollback",
+        "plat-runbook-payments-crashloop",
+        "plat-runbook-oncall-rotation"
+      ],
+      "retrieved_chunk_ids": [
+        "data-airflow-backfill::0000",
+        "data-airflow-dag-retry::0000",
+        "plat-runbook-gateway-auth::0000",
+        "plat-arch-service-mesh-overview::0000",
+        "services-billing-workers-readme::0002",
+        "plat-runbook-k8s-debug::0002",
+        "plat-runbook-payments-rollback::0002",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-oncall-rotation::0000",
+        "plat-runbook-payments-rollback::0003"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-034-401-vs-403",
+      "question": "Чем 401 отличается от 403 на api-gateway?",
+      "relevant_doc_ids": [
+        "plat-runbook-gateway-auth"
+      ],
+      "primary_doc_id": "plat-runbook-gateway-auth",
+      "retrieved_doc_ids": [
+        "plat-runbook-gateway-auth",
+        "plat-runbook-key-rotation",
+        "services-api-gateway-readme",
+        "plat-runbook-payments-crashloop",
+        "plat-arch-service-mesh-overview",
+        "plat-runbook-deploy-overview"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-runbook-gateway-auth::0002",
+        "plat-runbook-key-rotation::0001",
+        "plat-runbook-gateway-auth::0001",
+        "services-api-gateway-readme::0000",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-gateway-auth::0000",
+        "plat-arch-service-mesh-overview::0002",
+        "plat-runbook-deploy-overview::0000",
+        "plat-arch-service-mesh-overview::0000",
+        "plat-arch-service-mesh-overview::0001"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    },
+    {
+      "id": "q-036-mesh-vs-gateway",
+      "question": "Service mesh заменяет api-gateway для внешнего трафика?",
+      "relevant_doc_ids": [
+        "plat-arch-service-mesh-overview",
+        "services-api-gateway-readme"
+      ],
+      "primary_doc_id": "plat-arch-service-mesh-overview",
+      "retrieved_doc_ids": [
+        "plat-arch-service-mesh-overview",
+        "services-api-gateway-readme",
+        "plat-runbook-gateway-auth",
+        "plat-runbook-key-rotation",
+        "services-billing-workers-readme",
+        "plat-runbook-deploy-overview",
+        "plat-runbook-payments-crashloop",
+        "data-airflow-dag-retry"
+      ],
+      "retrieved_chunk_ids": [
+        "plat-arch-service-mesh-overview::0002",
+        "plat-arch-service-mesh-overview::0000",
+        "services-api-gateway-readme::0000",
+        "plat-runbook-gateway-auth::0000",
+        "plat-runbook-key-rotation::0000",
+        "services-billing-workers-readme::0001",
+        "plat-runbook-deploy-overview::0000",
+        "plat-runbook-payments-crashloop::0001",
+        "plat-runbook-deploy-overview::0001",
+        "data-airflow-dag-retry::0000"
+      ],
+      "first_relevant_rank": 1,
+      "hit_at": {
+        "1": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0
+    }
+  ]
+}

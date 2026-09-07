@@ -1,0 +1,18 @@
+{
+  "built_at": "2026-09-04T10:24:22.056437+00:00",
+  "n_chunks": 40,
+  "dim": 384,
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "chunks_path": "/Users/irina/Documents/Projects/research/data/processed/chunks.jsonl",
+  "embeddings_npz": "/Users/irina/Documents/Projects/research/data/processed/embeddings.npz",
+  "bm25": {
+    "k1": 1.5,
+    "b": 0.75,
+    "vocab_size": 710
+  },
+  "files": {
+    "dense": "dense.npz",
+    "bm25": "bm25.json",
+    "chunks_meta": "chunks_meta.jsonl"
+  }
+}
