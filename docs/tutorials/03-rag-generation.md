@@ -89,12 +89,12 @@ python -m unittest discover -s phase-3-generation/tests -v
 ## Что не входит
 
 - Диалог с памятью  
-- LLM-as-judge на 50 сэмплах (человеческая оценка / фаза 4)  
+- LLM-as-judge на 50 сэмплах (человеческая оценка; сетка метрик — фаза 4)  
 - Прод-деплой, auth, rate limit  
 
 ---
 
 ## Что дальше
 
-Фаза 4 — эксперименты (эмбеддинги / LLM).  
+Фаза 4 — сравнения на gold-set: [04-experiments.md](04-experiments.md).  
 Фаза 5 — сервис: `/search` + `/ask`, ops.

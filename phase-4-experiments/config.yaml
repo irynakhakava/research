@@ -1,0 +1,34 @@
+# Фаза 4 · Experiments (тот же gold-set и индекс, без нового сервиса)
+
+index_dir: data/processed/index
+documents_path: data/processed/documents.jsonl
+catalog_path: phase-0-discovery/sources.catalog.yaml
+gold_set_path: phase-0-discovery/gold-set/dataset.jsonl
+output_dir: data/processed/experiments
+
+embeddings:
+  backend: sentence_transformers
+  model_name: intfloat/multilingual-e5-small
+  normalize: true
+  passage_prefix: "passage: "
+  query_prefix: "query: "
+
+retrieve:
+  mode: hybrid
+  top_k: 10
+  candidate_k: 40
+  rrf_k: 60
+
+generation:
+  backend: extractive
+  max_context_chunks: 4
+  nearest_links: 3
+  quote_chars: 280
+  openai_base_url: https://api.openai.com/v1
+  openai_model: gpt-4o-mini
+
+experiments:
+  retrieval_modes: hybrid,dense,bm25
+  ask_min_dense_scores: 0.20,0.28,0.40
+  ask_top_ks: 3,5
+  include_openai: false

@@ -24,7 +24,7 @@
 | 1. Data pipeline | [docs/tutorials/01-data-pipeline.md](docs/tutorials/01-data-pipeline.md) | выполнена |
 | 2. Index & retrieval | [docs/tutorials/02-index-retrieval.md](docs/tutorials/02-index-retrieval.md) | пункты 1–3, 5 (4 HTTP optional) |
 | 3. RAG generation | [docs/tutorials/03-rag-generation.md](docs/tutorials/03-rag-generation.md) | `/ask` + цитаты |
-| 4. Experiments | — | ожидается |
+| 4. Experiments | [docs/tutorials/04-experiments.md](docs/tutorials/04-experiments.md) | сетка на gold-set |
 | 5. Service & ops | — | ожидается |
 
 ## Быстрый старт (фаза 0)
@@ -57,4 +57,5 @@ data/processed/          # выход пайплайна фазы 1
 phase-1-data/            # код пайплайна
 phase-2-retrieval/       # embeddings, индекс, search, eval
 phase-3-generation/      # /ask + цитаты
+phase-4-experiments/     # сравнения на gold-set
 ```

@@ -1,0 +1,239 @@
+{
+  "index_dir": "/Users/irina/Documents/Projects/research/data/processed/index",
+  "gold_set": "/Users/irina/Documents/Projects/research/phase-0-discovery/gold-set/dataset.jsonl",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "only": "all",
+  "runs": [
+    {
+      "name": "retrieve:hybrid",
+      "kind": "retrieval",
+      "params": {
+        "mode": "hybrid",
+        "top_k": 10
+      },
+      "metrics": {
+        "recall_at_1": 0.8636363636363636,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 0.9242424242424243,
+        "mrr_at_10": 0.9242424242424243
+      },
+      "passed": {
+        "recall_at_10": true,
+        "mrr": true
+      },
+      "n_cases": 22
+    },
+    {
+      "name": "retrieve:dense",
+      "kind": "retrieval",
+      "params": {
+        "mode": "dense",
+        "top_k": 10
+      },
+      "metrics": {
+        "recall_at_1": 0.9545454545454546,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 0.9696969696969696,
+        "mrr_at_10": 0.9696969696969696
+      },
+      "passed": {
+        "recall_at_10": true,
+        "mrr": true
+      },
+      "n_cases": 22
+    },
+    {
+      "name": "retrieve:bm25",
+      "kind": "retrieval",
+      "params": {
+        "mode": "bm25",
+        "top_k": 10
+      },
+      "metrics": {
+        "recall_at_1": 0.8181818181818182,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 0.8666666666666667,
+        "mrr_at_10": 0.8666666666666667
+      },
+      "passed": {
+        "recall_at_10": true,
+        "mrr": true
+      },
+      "n_cases": 22
+    },
+    {
+      "name": "ask:extractive:score=0.2:top_k=3",
+      "kind": "ask",
+      "params": {
+        "generation_backend": "extractive",
+        "min_dense_score": 0.2,
+        "top_k": 3
+      },
+      "metrics": {
+        "refuse_rate": 1.0,
+        "citation_contract_rate": 1.0,
+        "grounded_rate": 1.0,
+        "answer_refuse_rate": 0.0,
+        "answered_rate": 1.0,
+        "grounded_among_answered": 1.0
+      },
+      "passed": {
+        "refuse_rate": true,
+        "citation_contract_rate": true,
+        "grounded_rate": true
+      },
+      "n_refuse_cases": 3,
+      "n_answer_cases": 22
+    },
+    {
+      "name": "ask:extractive:score=0.2:top_k=5",
+      "kind": "ask",
+      "params": {
+        "generation_backend": "extractive",
+        "min_dense_score": 0.2,
+        "top_k": 5
+      },
+      "metrics": {
+        "refuse_rate": 1.0,
+        "citation_contract_rate": 1.0,
+        "grounded_rate": 1.0,
+        "answer_refuse_rate": 0.0,
+        "answered_rate": 1.0,
+        "grounded_among_answered": 1.0
+      },
+      "passed": {
+        "refuse_rate": true,
+        "citation_contract_rate": true,
+        "grounded_rate": true
+      },
+      "n_refuse_cases": 3,
+      "n_answer_cases": 22
+    },
+    {
+      "name": "ask:extractive:score=0.28:top_k=3",
+      "kind": "ask",
+      "params": {
+        "generation_backend": "extractive",
+        "min_dense_score": 0.28,
+        "top_k": 3
+      },
+      "metrics": {
+        "refuse_rate": 1.0,
+        "citation_contract_rate": 1.0,
+        "grounded_rate": 1.0,
+        "answer_refuse_rate": 0.0,
+        "answered_rate": 1.0,
+        "grounded_among_answered": 1.0
+      },
+      "passed": {
+        "refuse_rate": true,
+        "citation_contract_rate": true,
+        "grounded_rate": true
+      },
+      "n_refuse_cases": 3,
+      "n_answer_cases": 22
+    },
+    {
+      "name": "ask:extractive:score=0.28:top_k=5",
+      "kind": "ask",
+      "params": {
+        "generation_backend": "extractive",
+        "min_dense_score": 0.28,
+        "top_k": 5
+      },
+      "metrics": {
+        "refuse_rate": 1.0,
+        "citation_contract_rate": 1.0,
+        "grounded_rate": 1.0,
+        "answer_refuse_rate": 0.0,
+        "answered_rate": 1.0,
+        "grounded_among_answered": 1.0
+      },
+      "passed": {
+        "refuse_rate": true,
+        "citation_contract_rate": true,
+        "grounded_rate": true
+      },
+      "n_refuse_cases": 3,
+      "n_answer_cases": 22
+    },
+    {
+      "name": "ask:extractive:score=0.4:top_k=3",
+      "kind": "ask",
+      "params": {
+        "generation_backend": "extractive",
+        "min_dense_score": 0.4,
+        "top_k": 3
+      },
+      "metrics": {
+        "refuse_rate": 1.0,
+        "citation_contract_rate": 1.0,
+        "grounded_rate": 1.0,
+        "answer_refuse_rate": 0.0,
+        "answered_rate": 1.0,
+        "grounded_among_answered": 1.0
+      },
+      "passed": {
+        "refuse_rate": true,
+        "citation_contract_rate": true,
+        "grounded_rate": true
+      },
+      "n_refuse_cases": 3,
+      "n_answer_cases": 22
+    },
+    {
+      "name": "ask:extractive:score=0.4:top_k=5",
+      "kind": "ask",
+      "params": {
+        "generation_backend": "extractive",
+        "min_dense_score": 0.4,
+        "top_k": 5
+      },
+      "metrics": {
+        "refuse_rate": 1.0,
+        "citation_contract_rate": 1.0,
+        "grounded_rate": 1.0,
+        "answer_refuse_rate": 0.0,
+        "answered_rate": 1.0,
+        "grounded_among_answered": 1.0
+      },
+      "passed": {
+        "refuse_rate": true,
+        "citation_contract_rate": true,
+        "grounded_rate": true
+      },
+      "n_refuse_cases": 3,
+      "n_answer_cases": 22
+    }
+  ],
+  "winners": {
+    "retrieval": {
+      "name": "retrieve:dense",
+      "params": {
+        "mode": "dense",
+        "top_k": 10
+      },
+      "recall_at_10": 1.0,
+      "mrr": 0.9696969696969696
+    },
+    "ask": {
+      "name": "ask:extractive:score=0.2:top_k=3",
+      "params": {
+        "generation_backend": "extractive",
+        "min_dense_score": 0.2,
+        "top_k": 3
+      },
+      "metrics": {
+        "refuse_rate": 1.0,
+        "citation_contract_rate": 1.0,
+        "grounded_rate": 1.0,
+        "answer_refuse_rate": 0.0,
+        "answered_rate": 1.0,
+        "grounded_among_answered": 1.0
+      }
+    }
+  }
+}
